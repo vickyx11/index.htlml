@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Orologio Notion</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400&display=swap');
+
+        body {
+            background: transparent;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .clock-container {
+            display: flex;
+            align-items: center;
+            background: transparent;
+            padding: 10px 20px;
+            border-radius: 15px;
+        }
+
+        .clock {
+            font-size: 2rem;
+            color: #FFB6C1;
+            font-weight: bold;
+        }
+
+        .gif img {
+            width: 50px;
+            height: auto;
+            margin-left: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="clock-container">
+        <div class="clock" id="clock"></div>
+        <div class="gif">
+            <img src="https://media.tenor.com/zVvViQKqa0MAAAAj/psybirdb1oom.gif" alt="GIF">
+        </div>
+    </div>
+
+    <script>
+        function updateClock() {
+            const now = new Date();
+            let hours = now.getHours().toString().padStart(2, '0');
+            let minutes = now.getMinutes().toString().padStart(2, '0');
+            let seconds = now.getSeconds().toString().padStart(2, '0');
+            document.getElementById('clock').textContent = `${hours}:${minutes}:${seconds}`;
+        }
+        setInterval(updateClock, 1000);
+        updateClock();
+    </script>
+</body>
+</html>
